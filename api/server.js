@@ -6,6 +6,10 @@ const server = express();
 server.use(express.json());
 server.use(cors());
 
+server.get("/", (req, res) => {
+  res.json({ message: "Welcome to our API" });
+});
+
 server.get("/api/users", (req, res) => {
   const users = User.getAll();
   res.json(users);
